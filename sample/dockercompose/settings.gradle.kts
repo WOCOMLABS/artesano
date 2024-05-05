@@ -22,24 +22,24 @@ pluginManagement {
 
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
-    id("io.ight.gradle.settings.settings-artesano-plugin") version "0.0.1-RC6"
+    id("io.ight.gradle.settings.settings-artesano-plugin") version "0.0.1-RC7"
 }
 
 rootProject.name = "dockercompose"
 
 artesano {
 
-    dockerCompose {
-        type { DockerCompose.Type.Surrealdb }
-        containerName { "surreal-db-artesano" }
-        containerPort { "3001" }
-        containerVolume { "surreal-db-artesano-volume" }
-    }
-
-    dockerCompose {
-        type { DockerCompose.Type.Nexus }
-        containerName { "nexus-artesano" }
-        containerPort { "3002" }
-        containerVolume { "nexus-artesano-volume" }
-    }
+//    dockerCompose {
+//        type { DockerCompose.Type.Surrealdb }
+//        containerName { "surreal-db-artesano" }
+//        containerPort { "3001" }
+//        containerVolume { "surreal-db-artesano-volume" }
+//    }
+//
+//    dockerCompose {
+//        type { DockerCompose.Type.Nexus }
+//        containerName { "nexus-artesano" }
+//        containerPort { "3002" }
+//        containerVolume { "nexus-artesano-volume" }
+//    }
 }
