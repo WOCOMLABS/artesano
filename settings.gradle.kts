@@ -22,3 +22,4 @@ include(
 
 )
 
+includeBuild("sample/dockercompose")
