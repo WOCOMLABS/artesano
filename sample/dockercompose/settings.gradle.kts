@@ -22,7 +22,7 @@ pluginManagement {
 
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
-    id("io.ight.gradle.settings.settings-artesano-plugin") version "0.0.1-RC7"
+    id("io.ight.gradle.settings.settings-artesano-plugin") version "0.0.1-RC6"
 }
 
 rootProject.name = "dockercompose"
