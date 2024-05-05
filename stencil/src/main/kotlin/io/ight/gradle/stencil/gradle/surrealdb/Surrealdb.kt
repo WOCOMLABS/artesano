@@ -16,7 +16,7 @@ plugins {
 dockerArtesano {
     environment = mapOf<String , String>(
         "DB_USER" to properties["${Property.Surrealdb.user}"] as String ,
-        "DB_PASSWORD" to properties["${Property.Surrealdb.secret}" as String ,
+        "DB_PASSWORD" to properties["${Property.Surrealdb.secret}"] as String ,
     )
 
 }
