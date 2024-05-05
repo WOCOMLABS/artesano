@@ -7,7 +7,7 @@ plugins {
 @Suppress("UnstableApiUsage")
 //https://vanniktech.github.io/gradle-maven-publish-plugin/what/#kotlin-jvm-library
 mavenPublishing {
-    pomFromGradleProperties()
+    configureBasedOnAppliedPlugins()
 }
 
 publishing {

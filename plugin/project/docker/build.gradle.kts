@@ -1,7 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-import com.vanniktech.maven.publish.GradlePublishPlugin
-
 plugins {
     id(libs.plugins.kotlin.dsl.get().pluginId)
     id(libs.plugins.vanniktech.maven.publish.base.get().pluginId)
@@ -43,8 +41,7 @@ gradlePlugin {
 
 @Suppress("UnstableApiUsage")
 mavenPublishing {
-    pomFromGradleProperties()
-    configure(GradlePublishPlugin())
+    configureBasedOnAppliedPlugins()
 }
 
 publishing {

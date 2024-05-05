@@ -9,7 +9,7 @@ dependencies {
 
 @Suppress("UnstableApiUsage")
 mavenPublishing {
-    pomFromGradleProperties()
+    configureBasedOnAppliedPlugins()
 }
 
 publishing {
