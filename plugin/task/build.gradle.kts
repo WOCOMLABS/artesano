@@ -1,3 +1,5 @@
+import com.vanniktech.maven.publish.KotlinJvm
+
 plugins {
     id(libs.plugins.kotlin.dsl.get().pluginId)
     id(libs.plugins.vanniktech.maven.publish.base.get().pluginId)
@@ -10,6 +12,7 @@ dependencies {
 @Suppress("UnstableApiUsage")
 mavenPublishing {
     pomFromGradleProperties()
+    configure(KotlinJvm())
 }
 
 publishing {
