@@ -1,5 +1,5 @@
 plugins {
-    id("io.ight.gradle.project.docker-artesano-plugin") version "0.0.1-RC5" apply false
+    id("io.ight.gradle.project.docker-artesano-plugin") version "0.0.1-RC6" apply false
 }
 
 allprojects {
