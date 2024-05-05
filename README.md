@@ -1,6 +1,18 @@
+___ 
+<p align="right">
+  <a href="https://github.com/WOCOMLABS/artesano/actions/workflows/gradle-publish.yml">
+    <img src="https://github.com/WOCOMLABS/artesano/actions/workflows/gradle-publish.yml/badge.svg?branch=main" alt="Release CI">
+  </a>
+  <a href="https://github.com/WOCOMLABS/artesano/releases">
+    <img src="https://img.shields.io/github/v/release/WOCOMLABS/artesano?logo=github&style=flat" alt="GitHub release (latest by date)">
+  </a>
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="GitHub license: MIT">
+  </a>
+</p>
 
-# Artesano
-
+# Artesano 
+___
 ## Introduction
 This project includes a Gradle plugin named `settings-artesano-plugin` which facilitates the configuration and generation of Docker Compose files for services like SurrealDB and Nexus. It utilizes a declarative DSL for specifying service details such as container names, ports, and volumes.
 
@@ -61,6 +73,3 @@ Upon applying the configuration, the plugin will generate the following files un
 
 ## Contributing
 Contribute to the plugin by cloning the repository and submitting pull requests. Please ensure your commits follow the existing code style and all tests are passing.
-
-## License
-Specify the license under which the plugin is released, e.g., MIT, Apache 2.0, etc.

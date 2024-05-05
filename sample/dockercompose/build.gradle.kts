@@ -1,7 +1,5 @@
 plugins {
-    id("io.ight.gradle.project.docker-artesano-plugin") version "0.0.1-RC4" apply false
-    id("io.ight.gradle.project.open-api-artesano-plugin") version "0.0.1-RC4" apply false
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.23" apply false
+    id("io.ight.gradle.project.docker-artesano-plugin") version "0.0.1-RC5" apply false
 }
 
 allprojects {
