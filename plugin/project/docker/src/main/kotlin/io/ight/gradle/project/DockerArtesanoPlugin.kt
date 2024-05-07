@@ -1,6 +1,6 @@
 package io.ight.gradle.project
 
-import io.ight.gradle.task.dockercompose.DockerCompose
+import io.ight.gradle.task.DockerArtesanoPluginTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.create
@@ -19,13 +19,13 @@ class DockerArtesanoPlugin : Plugin<Project> {
         val dockerArtesano = extensions.create<DockerArtesanoPluginExtension>("dockerArtesano")
 
         afterEvaluate {
-            val dockerComposeUp = tasks.create("dockerComposeUp" , DockerCompose::class) {
+            val dockerArtesanoPluginTaskUp = tasks.create("dockerComposeUp" , DockerArtesanoPluginTask::class) {
                 envMap = dockerArtesano.environment
-                type = DockerCompose.Type.Up
+                type = DockerArtesanoPluginTask.Type.Up
             }
 
-            val dockerComposeDown = tasks.create("dockerComposeDown" , DockerCompose::class) {
-                type = DockerCompose.Type.Down
+            val dockerArtesanoPluginTaskDown = tasks.create("dockerComposeDown" , DockerArtesanoPluginTask::class) {
+                type = DockerArtesanoPluginTask.Type.Down
             }
         }
         Unit

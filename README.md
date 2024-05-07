@@ -1,7 +1,7 @@
 ___ 
 <p align="right">
-  <a href="https://github.com/WOCOMLABS/artesano/actions/workflows/gradle-publish.yml">
-    <img src="https://github.com/WOCOMLABS/artesano/actions/workflows/gradle-publish.yml/badge.svg?branch=main" alt="Release CI">
+  <a href="https://github.com/WOCOMLABS/artesano/actions/workflows/publish.yml">
+    <img src="https://github.com/WOCOMLABS/artesano/actions/workflows/publish.yml/badge.svg" alt="Release CI">
   </a>
   <a href="https://github.com/WOCOMLABS/artesano/releases">
     <img src="https://img.shields.io/github/v/release/WOCOMLABS/artesano?logo=github&style=flat" alt="GitHub release (latest by date)">

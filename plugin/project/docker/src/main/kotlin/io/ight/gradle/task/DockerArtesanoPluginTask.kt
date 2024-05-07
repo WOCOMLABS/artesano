@@ -1,9 +1,8 @@
-package io.ight.gradle.task.dockercompose
+package io.ight.gradle.task
 
-import io.ight.gradle.task.ArtesanoTask
-import io.ight.gradle.task.dockercompose.DockerCompose.Type.Down
-import io.ight.gradle.task.dockercompose.DockerCompose.Type.Unknown
-import io.ight.gradle.task.dockercompose.DockerCompose.Type.Up
+import io.ight.gradle.task.DockerArtesanoPluginTask.Type.Down
+import io.ight.gradle.task.DockerArtesanoPluginTask.Type.Unknown
+import io.ight.gradle.task.DockerArtesanoPluginTask.Type.Up
 import org.gradle.api.tasks.Exec
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
@@ -18,7 +17,7 @@ import java.io.File
  *
  * @constructor Create empty Docker compose
  */
-open class DockerCompose : Exec() {
+open class DockerArtesanoPluginTask : Exec() {
 
 
     @Input
