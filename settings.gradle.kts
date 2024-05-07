@@ -1,14 +1,12 @@
-rootProject.name = "artesano"
+plugins {
 
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        mavenLocal()
-    }
 }
 
+rootProject.name = "artesano"
+
 include(
+    ":catalog" ,
+
     ":dsl" ,
     ":stencil" ,
     ":builder" ,
@@ -19,7 +17,10 @@ include(
     ":plugin:project:openapi" ,
     ":plugin:task" ,
 
+    )
 
-)
 
-includeBuild("sample/dockercompose")
+//includeBuild("sample/dockercompose")
+
+
+

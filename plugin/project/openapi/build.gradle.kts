@@ -1,12 +1,3 @@
-@file:Suppress("UnstableApiUsage")
-
-plugins {
-    id(libs.plugins.kotlin.dsl.get().pluginId)
-    id(libs.plugins.vanniktech.maven.publish.base.get().pluginId)
-    id(libs.plugins.gradle.plugin.publish.get().pluginId)
-
-}
-
 dependencies {
     implementation(project(":plugin:task"))
     implementation(project(":stencil"))
@@ -40,29 +31,4 @@ gradlePlugin {
         }
 
     }
-}
-
-@Suppress("UnstableApiUsage")
-mavenPublishing {
-    configureBasedOnAppliedPlugins()
-}
-
-publishing {
-
-    repositories {
-
-        val REPOSITORY_URL : String by project
-
-        maven(REPOSITORY_URL) {
-
-            name = "GitHubPackagesSettings"
-
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
-            }
-
-        }
-    }
-
 }
