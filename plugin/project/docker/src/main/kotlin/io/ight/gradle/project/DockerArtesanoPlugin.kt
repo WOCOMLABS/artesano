@@ -1,8 +1,8 @@
 package io.ight.gradle.project
 
-import io.ight.gradle.task.DockerArtesanoPluginTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.tasks.Exec
 import org.gradle.kotlin.dsl.create
 
 /**
@@ -19,13 +19,29 @@ class DockerArtesanoPlugin : Plugin<Project> {
         val dockerArtesano = extensions.create<DockerArtesanoPluginExtension>("dockerArtesano")
 
         afterEvaluate {
-            val dockerArtesanoPluginTaskUp = tasks.create("dockerComposeUp" , DockerArtesanoPluginTask::class) {
-                envMap = dockerArtesano.environment
-                type = DockerArtesanoPluginTask.Type.Up
+            val dockerArtesanoPluginTaskUp = tasks.create("dockerComposeUp" , Exec::class) {
+                group = "artesano"
+                description = """
+                |Docker compose Task
+                | • Creates and starts services defined in docker-compose.yml
+        """.trimMargin()
+
+                dockerArtesano.environment.forEach { (key , value) -> environment(key , value) }
+
+                commandLine("docker-compose" , "up" , "-d")
+
             }
 
-            val dockerArtesanoPluginTaskDown = tasks.create("dockerComposeDown" , DockerArtesanoPluginTask::class) {
-                type = DockerArtesanoPluginTask.Type.Down
+            val dockerArtesanoPluginTaskDown = tasks.create("dockerComposeDown" , Exec::class) {
+
+                group = "artesano"
+                description = """
+                |Docker compose Task
+                | • Removes the services defined in docker-compose.yml
+        """.trimMargin()
+
+                commandLine("docker-compose" , "down" , "-v")
+
             }
         }
         Unit

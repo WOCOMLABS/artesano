@@ -1,8 +1,7 @@
 dependencies {
-    implementation(project(":plugin:task"))
     implementation(project(":stencil"))
     implementation(project(":builder"))
-    implementation(gradleKotlinDsl())
+
     implementation(libs.openapi.generator.gradle.plugin)
     implementation(libs.gradle.kotlin.dsl.plugins)
     implementation(libs.kotlin.gradle.plugin)
