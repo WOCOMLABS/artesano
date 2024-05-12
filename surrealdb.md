@@ -74,8 +74,8 @@ plugins {
 dockerArtesano {
     environment.putAll(
         mutableMapOf<String , String>(
-            "DB_USER" to properties["io.ight.surrealdb.user"] as String ,
-            "DB_PASSWORD" to properties["io.ight.surrealdb.secret"] as String ,
+            "DB_USER" to properties["io.ight.surrealdb.root.user"] as String ,
+            "DB_PASSWORD" to properties["io.ight.surrealdb.root.secret"] as String ,
         )
     )
 

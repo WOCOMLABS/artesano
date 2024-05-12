@@ -34,7 +34,7 @@ pluginManagement {
 }
 
 plugins {
-    id("io.ight.gradle.settings.settings-artesano-plugin") version "0.0.1-RC4"
+    id("io.ight.gradle.settings.settings-artesano-plugin") version "<<latest>>"
 }
 ```
 

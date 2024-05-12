@@ -13,9 +13,10 @@ include(
 
     ":plugin:settings" ,
 
+    ":plugin:project:root" ,
     ":plugin:project:docker" ,
     ":plugin:project:openapi" ,
-    ":plugin:task" ,
+    ":plugin:project:ijhttp" ,
 
     )
 

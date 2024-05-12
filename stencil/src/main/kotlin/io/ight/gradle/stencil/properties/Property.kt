@@ -34,12 +34,12 @@ object Property {
         /**
          * The user of the Surrealdb.
          */
-        const val user : String = "io.ight.surrealdb.user"
+        const val user : String = "io.ight.surrealdb.root.user"
 
         /**
          * The secret of the Surrealdb.
          */
-        const val secret : String = "io.ight.surrealdb.secret"
+        const val secret : String = "io.ight.surrealdb.root.secret"
 
         /**
          * The port of the Surrealdb.
