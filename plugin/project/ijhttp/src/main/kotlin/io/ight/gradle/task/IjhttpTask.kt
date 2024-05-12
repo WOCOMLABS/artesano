@@ -194,7 +194,7 @@ open class IjhttpTask : Exec() {
                     listOf(Option.PrivateEnvVariables.alt , "$key=$value")
                 }.toTypedArray() ,
 
-                *privateEnvVariables.flatMap { (key , value) ->
+                *envVariables.flatMap { (key , value) ->
                     listOf(Option.EnvVariables.alt , "$key=$value")
                 }.toTypedArray() ,
 
