@@ -108,6 +108,8 @@ fun Settings.openApiSurrealDb(block : OpenApiSurrealDbBuilder.() -> Unit) {
         Stencil.Properties.openApiSurrealdb(surrealDb)
     )
 
+    // openapi/client/build.gradle.kts
+    // openapi/server/build.gradle.kts
     val buildFile = File("${settingsDir}$path/build.gradle.kts")
     if (buildFile.exists().not()) {
         buildFile.writeText(
@@ -120,12 +122,15 @@ fun Settings.openApiSurrealDb(block : OpenApiSurrealDbBuilder.() -> Unit) {
         )
     }
 
-
-    val apiFolder = File("${settingsDir}/openapi/${surrealDb.packageName}")
+    // openapi/client/{{packageName}}
+    // openapi/server/{{packageName}}
+    val apiFolder = File("${settingsDir}$path${surrealDb.packageName}")
     if (apiFolder.exists().not()) {
         apiFolder.mkdirs()
     }
-    val yamlFile = File("${settingsDir}/openapi/${surrealDb.packageName}/${surrealDb.yamlFile}")
+    // openapi/client/{{packageName}}/{{ymlFile}}
+    // openapi/server/{{packageName}}/{{ymlFile}}
+    val yamlFile = File("${settingsDir}$path${surrealDb.packageName}/${surrealDb.yamlFile}")
     if (yamlFile.exists().not()) {
         yamlFile.writeText("")
     }
