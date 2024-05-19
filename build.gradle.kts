@@ -2,6 +2,7 @@ import com.vanniktech.maven.publish.MavenPublishBaseExtension
 import org.jetbrains.dokka.DokkaConfiguration
 import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
 import org.jetbrains.dokka.gradle.DokkaTaskPartial
+import org.jetbrains.kotlin.gradle.dsl.KotlinTopLevelExtension
 import java.net.URL
 
 plugins {
@@ -99,7 +100,7 @@ configure(projects.keys.toList()) {
 
         if (kotlinDsl) {
             apply(plugin = kotlinDslPluginId)
-            dependencies{
+            dependencies {
                 "implementation"(gradleKotlinDsl())
                 "implementation"(downloadTaskLibrary)
             }
@@ -108,6 +109,8 @@ configure(projects.keys.toList()) {
         if (gradlePublish) {
             apply(plugin = gradlePluginPublishPluginId)
         }
+
+        extensions.configureToolChain()
 
     }
 }
@@ -153,3 +156,10 @@ tasks.withType(DokkaMultiModuleTask::class) {
     outputDirectory.set(layout.projectDirectory.dir("docs"))
 }
 
+fun ExtensionContainer.configureToolChain() {
+
+    configure(KotlinTopLevelExtension::class) {
+        jvmToolchain(11)
+    }
+
+}
