@@ -13,7 +13,6 @@ import io.ight.stencil.gradle.nexus.nexus
 import io.ight.stencil.gradle.openapi.openapi
 import io.ight.stencil.gradle.surrealdb.surrealdb
 import io.ight.stencil.properties.dockercompose.dockerCompose
-import io.ight.stencil.properties.surrealdb.openApiSurrealdb
 import io.ight.stencil.yml.nexus.dockerComposeNexus
 import io.ight.stencil.yml.surrealdb.dockerComposeSurrealdb
 import org.gradle.api.Plugin
@@ -103,11 +102,6 @@ fun Settings.openApiSurrealDb(block : OpenApiSurrealDbBuilder.() -> Unit) {
         folder.mkdirs()
     }
 
-    verifyArtesanoProperties(
-        "${settingsDir}$path/artesano.properties" ,
-        Stencil.Properties.openApiSurrealdb(surrealDb)
-    )
-
     // openapi/client/build.gradle.kts
     // openapi/server/build.gradle.kts
     val buildFile = File("${settingsDir}$path/build.gradle.kts")
@@ -117,20 +111,21 @@ fun Settings.openApiSurrealDb(block : OpenApiSurrealDbBuilder.() -> Unit) {
                 type = surrealDb.type ,
                 yamlFile = surrealDb.yamlFile ,
                 version = surrealDb.version ,
-                packageName = surrealDb.packageName
+                packageName = surrealDb.packageName,
+                skipValidateSpec = surrealDb.skipValidateSpec
             )
         )
     }
 
     // openapi/client/{{packageName}}
     // openapi/server/{{packageName}}
-    val apiFolder = File("${settingsDir}$path${surrealDb.packageName}")
+    val apiFolder = File("${settingsDir}/openapi/${surrealDb.packageName}")
     if (apiFolder.exists().not()) {
         apiFolder.mkdirs()
     }
     // openapi/client/{{packageName}}/{{ymlFile}}
     // openapi/server/{{packageName}}/{{ymlFile}}
-    val yamlFile = File("${settingsDir}$path${surrealDb.packageName}/${surrealDb.yamlFile}")
+    val yamlFile = File("${settingsDir}/openapi/${surrealDb.packageName}/${surrealDb.yamlFile}")
     if (yamlFile.exists().not()) {
         yamlFile.writeText("")
     }

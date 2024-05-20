@@ -49,7 +49,7 @@ class OpenApiArtesanoPlugin : Plugin<Project> {
                         inputSpec.set(openApiArtesano.yamlFile)
                         outputDir.set("$rootDir/${openApiArtesano.packageName}/client")
                         version.set(openApiArtesano.version)
-
+                        skipValidateSpec.set(openApiArtesano.skipValidateSpec)
                     }
                     //https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/kotlin-server.md
                     OpenApiType.Server -> {
@@ -61,6 +61,7 @@ class OpenApiArtesanoPlugin : Plugin<Project> {
                         inputSpec.set(openApiArtesano.yamlFile)
                         outputDir.set("$rootDir/${openApiArtesano.packageName}/server")
                         version.set(openApiArtesano.version)
+                        skipValidateSpec.set(openApiArtesano.skipValidateSpec)
                     }
 
 
@@ -85,5 +86,6 @@ open class OpenApiArtesanoPluginExtension {
     var yamlFile : String = "yamlName.yaml"
     var version : String = "0.0.1"
     var packageName : String = "packageName"
+    var skipValidateSpec : Boolean = false
 
 }

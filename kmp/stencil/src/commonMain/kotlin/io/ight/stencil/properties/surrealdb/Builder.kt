@@ -12,31 +12,15 @@ import io.ight.stencil.properties.openapi.OpenApiType.Undefined
  * @property yamlFile
  * @property version
  * @property packageName
- * @property namespace
- * @property database
- * @property user
- * @property secret
- * @property port
- * @property testUser
- * @property testSecret
  * @constructor Create empty Open api surreal db
  */
 data class OpenApiSurrealDb(
     val type : OpenApiType ,
-    val yamlFile :String ,
-    val version :String ,
-    val packageName :String ,
-    val namespace : String ,
-    val database : String ,
-    val user : String ,
-    val secret : String ,
-    val port : String ,
-    val testUser : String ,
-    val testSecret : String ,
-) {
-
-
-}
+    val yamlFile : String ,
+    val version : String ,
+    val packageName : String ,
+    val skipValidateSpec : Boolean ,
+)
 
 
 /**
@@ -51,13 +35,7 @@ class OpenApiSurrealDbBuilder {
     private var _yamlFile : String = "yamlFile.yaml"
     private var _version : String = "0.0.1"
     private var _packageName : String = "packageName"
-    private var _namespace : String = "elNamespace"
-    private var _database : String = "laBaseDeDatos"
-    private var _user : String = "elUsuario"
-    private var _secret : String = "elM1st3r10sO"
-    private var _port : String = "8000"
-    private var _testUser : String = "elTestUser"
-    private var _testSecret : String = "elSecret0DelTest"
+    private var _skipValidateSpec : Boolean = false
 
 
     /**
@@ -69,18 +47,6 @@ class OpenApiSurrealDbBuilder {
     @ArtesanoBuilderDsl
     fun type(block : () -> OpenApiType) {
         _openApiType = block()
-    }
-
-
-    /**
-     * Namespace
-     *
-     * @param block
-     * @receiver
-     */
-    @ArtesanoBuilderDsl
-    fun namespace(block : () -> String) {
-        _namespace = block()
     }
 
 
@@ -121,74 +87,14 @@ class OpenApiSurrealDbBuilder {
 
 
     /**
-     * Database
+     * Skip validate spec
      *
      * @param block
      * @receiver
      */
     @ArtesanoBuilderDsl
-    fun database(block : () -> String) {
-        _database = block()
-    }
-
-
-    /**
-     * User
-     *
-     * @param block
-     * @receiver
-     */
-    @ArtesanoBuilderDsl
-    fun user(block : () -> String) {
-        _user = block()
-    }
-
-
-    /**
-     * Secret
-     *
-     * @param block
-     * @receiver
-     */
-    @ArtesanoBuilderDsl
-    fun secret(block : () -> String) {
-        _secret = block()
-    }
-
-
-    /**
-     * Port
-     *
-     * @param block
-     * @receiver
-     */
-    @ArtesanoBuilderDsl
-    fun port(block : () -> String) {
-        _port = block()
-    }
-
-
-    /**
-     * Test user
-     *
-     * @param block
-     * @receiver
-     */
-    @ArtesanoBuilderDsl
-    fun testUser(block : () -> String) {
-        _testUser = block()
-    }
-
-
-    /**
-     * Test secret
-     *
-     * @param block
-     * @receiver
-     */
-    @ArtesanoBuilderDsl
-    fun testSecret(block : () -> String) {
-        _testSecret = block()
+    fun skipValidateSpec(block : () -> Boolean) {
+        _skipValidateSpec = block()
     }
 
 
@@ -201,13 +107,7 @@ class OpenApiSurrealDbBuilder {
         yamlFile = _yamlFile ,
         version = _version ,
         packageName = _packageName ,
-        namespace = _namespace ,
-        database = _database ,
-        user = _user ,
-        secret = _secret ,
-        port = _port ,
-        testUser = _testUser ,
-        testSecret = _testSecret ,
+        skipValidateSpec = _skipValidateSpec ,
     )
 
 }

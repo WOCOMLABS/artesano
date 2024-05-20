@@ -19,8 +19,9 @@ fun Gradle.openapi(
     yamlFile : String ,
     version : String ,
     packageName : String ,
+    skipValidateSpec : Boolean ,
 ) = """
-import io.ight.gradle.builder.OpenApiType
+import io.ight.stencil.properties.openapi.OpenApiType
 
 plugins {
     id("io.ight.gradle.project.open-api-artesano-plugin")
@@ -34,9 +35,10 @@ openApiArtesano {
             Undefined -> "Undefined"
         }
     }
-    yamlFile = "${'$'}rootDir/openApi/$packageName/$yamlFile"
+    yamlFile = "${'$'}rootDir/openapi/$packageName/$yamlFile"
     version  = "$version"
     packageName = "$packageName"
+    skipValidateSpec = $skipValidateSpec
 }
 
 """.trimIndent()

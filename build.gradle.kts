@@ -248,69 +248,37 @@ fun ExtensionContainer.configureForMultiplatform(name : String) {
         }
 
         jvm()
-
         js {
-            browser {
-                webpackTask {
-                    mainOutputFileName = "${name}.js"
-                }
-            }
+            browser()
             nodejs()
-            binaries.executable()
-        }
 
+        }
         wasmJs {
             browser()
             nodejs()
-            binaries.executable()
-        }
 
+        }
         wasmWasi {
             nodejs()
-            binaries.executable()
         }
 
         val os = osdetector.os
 
         when {
             os.startsWith("osx") -> {
-
-                listOf(
-                    macosX64() ,
-                    macosArm64() ,
-                    iosX64() ,
-                    iosArm64() ,
-                    iosSimulatorArm64() ,
-
-                    ).forEach { nativeTarget ->
-
-                    nativeTarget.binaries.framework {
-                        baseName = name
-                        isStatic = true
-                    }
-                }
+                macosArm64()
+                iosArm64()
+                iosSimulatorArm64()
             }
 
             else -> {
 
             }
 
-
         }
 
-
-        linuxX64 {
-            binaries.staticLib {
-                baseName = name
-            }
-        }
-
-        mingwX64 {
-            binaries.staticLib {
-                baseName = name
-            }
-        }
-
+        linuxX64()
+        mingwX64()
         jvmToolchain(17)
     }
 
