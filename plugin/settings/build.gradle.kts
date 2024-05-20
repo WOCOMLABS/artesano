@@ -1,9 +1,8 @@
 dependencies {
     implementation(libs.kotlin.gradle.plugin)
 
-    implementation(project(":stencil"))
-    implementation(project(":builder"))
-    implementation(project(":dsl"))
+    implementation(project(":kmp:stencil"))
+    implementation(project(":kmp:annotation"))
 }
 
 gradlePlugin {

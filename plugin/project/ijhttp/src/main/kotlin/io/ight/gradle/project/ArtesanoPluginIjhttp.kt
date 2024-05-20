@@ -1,7 +1,7 @@
 package io.ight.gradle.project
 
 import de.undercouch.gradle.tasks.download.Download
-import io.ight.gradle.dsl.ArtesanoDsl
+import io.ight.annotation.dsl.ArtesanoDsl
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.create

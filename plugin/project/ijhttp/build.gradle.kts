@@ -1,5 +1,5 @@
 dependencies {
-    implementation(project(":dsl"))
+    implementation(project(":kmp:annotation"))
     implementation(libs.gradle.kotlin.dsl.plugins)
     implementation(libs.kotlin.gradle.plugin)
 }
