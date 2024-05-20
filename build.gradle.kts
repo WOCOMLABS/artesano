@@ -278,12 +278,6 @@ fun ExtensionContainer.configureForMultiplatform(name : String) {
                 listOf(
                     macosX64() ,
                     macosArm64() ,
-//                    tvosX64() ,
-//                    tvosArm64() ,
-//                    tvosSimulatorArm64() ,
-//                    watchosArm64() ,
-//                    watchosX64() ,
-//                    watchosSimulatorArm64() ,
                     iosX64() ,
                     iosArm64() ,
                     iosSimulatorArm64() ,
@@ -295,10 +289,6 @@ fun ExtensionContainer.configureForMultiplatform(name : String) {
                         isStatic = true
                     }
                 }
-            }
-
-            os.startsWith("windows") -> {
-
             }
 
             else -> {
@@ -314,12 +304,6 @@ fun ExtensionContainer.configureForMultiplatform(name : String) {
                 baseName = name
             }
         }
-
-//        linuxArm64 {
-//            binaries.staticLib {
-//                baseName = name
-//            }
-//        }
 
         mingwX64 {
             binaries.staticLib {
