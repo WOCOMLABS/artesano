@@ -1,5 +1,10 @@
-plugins {
-
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        google()
+        mavenLocal()
+    }
 }
 
 rootProject.name = "artesano"
@@ -7,9 +12,8 @@ rootProject.name = "artesano"
 include(
     ":catalog" ,
 
-    ":dsl" ,
-    ":stencil" ,
-    ":builder" ,
+    ":kmp:annotation" ,
+    ":kmp:stencil" ,
 
     ":plugin:settings" ,
 
@@ -21,7 +25,7 @@ include(
     )
 
 
-//includeBuild("sample/dockercompose")
+//includeBuild("build-logic")
 
 
 

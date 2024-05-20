@@ -1,7 +1,7 @@
 package io.ight.gradle.project
 
 
-import io.ight.gradle.builder.OpenApiType
+import io.ight.stencil.properties.openapi.OpenApiType
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.create

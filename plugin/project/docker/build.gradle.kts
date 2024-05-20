@@ -1,6 +1,5 @@
 dependencies {
-    implementation(project(":stencil"))
-    implementation(project(":builder"))
+    implementation(project(":kmp:stencil"))
 
     implementation(libs.openapi.generator.gradle.plugin)
     implementation(libs.gradle.kotlin.dsl.plugins)

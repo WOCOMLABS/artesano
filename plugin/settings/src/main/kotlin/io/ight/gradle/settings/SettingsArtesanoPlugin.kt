@@ -1,21 +1,21 @@
 package io.ight.gradle.settings
 
-import io.ight.gradle.dsl.ArtesanoDsl
-import io.ight.gradle.builder.DockerCompose.Type.Nexus
-import io.ight.gradle.builder.DockerCompose.Type.Surrealdb
-import io.ight.gradle.builder.DockerComposeBuilder
-import io.ight.gradle.builder.OpenApiType
-import io.ight.gradle.builder.OpenApiType.Client
-import io.ight.gradle.builder.OpenApiType.Server
-import io.ight.gradle.builder.OpenApiSurrealDbBuilder
-import io.ight.gradle.stencil.Stencil
-import io.ight.gradle.stencil.gradle.nexus.nexus
-import io.ight.gradle.stencil.gradle.openapi.openapi
-import io.ight.gradle.stencil.gradle.surrealdb.surrealdb
-import io.ight.gradle.stencil.properties.dockercompose.`docker-compose`
-import io.ight.gradle.stencil.properties.surrealdb.openApiSurrealdb
-import io.ight.gradle.stencil.yml.nexus.`docker-compose nexus`
-import io.ight.gradle.stencil.yml.surrealdb.`docker-compose surreal db`
+import io.ight.annotation.dsl.ArtesanoDsl
+import io.ight.stencil.properties.dockercompose.DockerCompose.Type.Nexus
+import io.ight.stencil.properties.dockercompose.DockerCompose.Type.Surrealdb
+import io.ight.stencil.properties.dockercompose.DockerComposeBuilder
+import io.ight.stencil.properties.openapi.OpenApiType
+import io.ight.stencil.properties.openapi.OpenApiType.Client
+import io.ight.stencil.properties.openapi.OpenApiType.Server
+import io.ight.stencil.properties.surrealdb.OpenApiSurrealDbBuilder
+import io.ight.stencil.Stencil
+import io.ight.stencil.gradle.nexus.nexus
+import io.ight.stencil.gradle.openapi.openapi
+import io.ight.stencil.gradle.surrealdb.surrealdb
+import io.ight.stencil.properties.dockercompose.dockerCompose
+import io.ight.stencil.properties.surrealdb.openApiSurrealdb
+import io.ight.stencil.yml.nexus.dockerComposeNexus
+import io.ight.stencil.yml.surrealdb.dockerComposeSurrealdb
 import org.gradle.api.Plugin
 import org.gradle.api.initialization.Settings
 import org.gradle.api.plugins.PluginAware
@@ -56,15 +56,15 @@ class SettingsArtesanoPlugin : Plugin<Settings> {
 
         verifyArtesanoProperties(
             "${settingsDir}$path/artesano.properties" ,
-            Stencil.Properties.`docker-compose`(dockerCompose)
+            Stencil.Properties.dockerCompose(dockerCompose)
         )
 
         val dockerComposeFile = File("${settingsDir}$path/docker-compose.yml")
         if (dockerComposeFile.exists().not()) {
             dockerComposeFile.writeText(
                 when (dockerCompose.type) {
-                    Surrealdb -> Stencil.Yml.`docker-compose surreal db`(dockerCompose)
-                    Nexus -> Stencil.Yml.`docker-compose nexus`(dockerCompose)
+                    Surrealdb -> Stencil.Yml.dockerComposeSurrealdb(dockerCompose)
+                    Nexus -> Stencil.Yml.dockerComposeNexus(dockerCompose)
                 }
             )
         }

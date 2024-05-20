@@ -1,6 +1,6 @@
 package io.ight.gradle.task
 
-import io.ight.gradle.dsl.ArtesanoDsl
+import io.ight.annotation.dsl.ArtesanoDsl
 
 
 import org.gradle.api.tasks.Exec
